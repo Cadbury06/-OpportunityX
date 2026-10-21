@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpportunityX – Your next chapter starts here</title>
+<style>
+:root{
+  --bg:#fbf8ff;
+  --primary:#5246ce;
+  --primary-soft:#efebff;
+  --primary-softer:#f6f2ff;
+  --primary-mid:#e9e5ff;
+  --ink:#1a192d;
+  --body:#3e4942;
+  --green:#16845b;
+  --green-soft:rgba(22,132,91,.1);
+  --green-dark:#006946;
+  --cta:#6b61e9;
+  --dark:#2f2e42;
+  --shadow-sm:0 1px 1px rgba(0,0,0,.05);
+  --font:"Liberation Serif","Times New Roman",Times,serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.i{width:1em;height:1em;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.wrap{max-width:1280px;margin:0 auto;padding:0 32px}
+section{position:relative}
+
+/* ---------- shared bits ---------- */
+h2{font-size:36px;line-height:44px;letter-spacing:-.54px;font-weight:700;color:var(--ink)}
+.lead{font-size:18px;line-height:28px;color:var(--body)}
+.sec{padding:40px 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.sec-head .lead{margin-top:8px;max-width:672px}
+.sec-head.center{flex-direction:column;align-items:center;text-align:center;max-width:672px;margin:0 auto}
+.link-arrow{display:inline-flex;align-items:center;gap:8px;color:var(--primary);font-weight:700;font-size:14px;line-height:20px;letter-spacing:.14px}
+.link-arrow .i{width:10.667px;height:10.667px;stroke-width:2.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:48px;font-weight:700;font-size:14px;line-height:20px;letter-spacing:.14px;padding:14px 32px;transition:transform .15s,box-shadow .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn .i{width:10.667px;height:10.667px;stroke-width:2.5}
+.btn-primary{background:var(--primary);color:#fff;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1)}
+.btn-primary:hover{background:#4538b8}
+.btn-white{background:#fff;color:var(--ink);filter:drop-shadow(0 1px 1px rgba(0,0,0,.05))}
+.card{background:#fff;border-radius:16px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.05))}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:9999px;padding:4px 12px;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700}
+.chip-purple{background:var(--primary-soft);color:var(--primary)}
+.chip-light{background:var(--primary-softer);color:var(--ink)}
+.chip-green{background:var(--green-soft);color:var(--green)}
+.chip .i{width:13px;height:13px}
+
+/* ---------- 1. HERO ---------- */
+.hero{padding:120px 0 96px;overflow:hidden}
+.glow{position:absolute;border-radius:9999px;filter:blur(32px);pointer-events:none}
+.glow-a{left:-128px;top:-128px;width:384px;height:384px;background:rgba(107,97,233,.1)}
+.glow-b{right:-128px;bottom:-140px;width:512px;height:512px;background:rgba(0,105,70,.05)}
+.hero-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center;position:relative;min-height:554px}
+.hero-copy{grid-column:1/span 7;padding-right:24px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--primary-soft);border-radius:9999px;padding:6px 16px;font-size:12px;line-height:16px;letter-spacing:.6px;text-transform:uppercase;font-weight:700;color:var(--primary);filter:drop-shadow(0 1px 1px rgba(0,0,0,.05));margin-bottom:16px}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.hero h1{font-size:56px;line-height:64px;letter-spacing:-1.12px;font-weight:700;color:var(--ink);margin-bottom:16px}
+.hl{position:relative;color:var(--primary);display:inline-block}
+.hl svg{position:absolute;left:0;right:0;bottom:-8px;width:100%;height:12px;overflow:visible}
+.hero-sub{font-size:18px;line-height:28px;color:var(--body);max-width:672px;margin-bottom:40px}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:24px}
+.reassure{display:inline-flex;align-items:center;gap:8px;background:var(--primary-softer);border-radius:9999px;padding:8px 16px;font-size:14px;line-height:20px;color:var(--body)}
+.reassure span:first-child{font-size:16px;color:var(--primary)}
+
+.hero-visual{grid-column:8/span 5;position:relative;width:100%;max-width:512px;aspect-ratio:4/4.5;justify-self:stretch}
+.hv-bg{position:absolute;inset:21.57px 18.99px;border-radius:24px;transform:rotate(2deg);opacity:.6;background:linear-gradient(131deg,#efebff 0%,#e9e5ff 100%)}
+.hv-card{position:absolute;background:#fff;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:4px}
+.hv-c1{top:16px;left:0;right:32px;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+.hv-c2{bottom:48px;left:40px;right:0;box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+.hv-row{display:flex;align-items:center;justify-content:space-between;width:100%}
+.save{width:32px;height:32px;border-radius:9999px;display:grid;place-items:center;font-size:15px;color:var(--ink)}
+.save:hover{background:var(--primary-soft)}
+.hv-title{font-size:20px;line-height:28px;font-weight:700;padding-top:4px;color:var(--ink)}
+.hv-org{font-size:14px;line-height:20px;color:var(--body)}
+.hv-tags{display:flex;align-items:center;gap:8px;padding-top:12px;flex-wrap:wrap}
+.tag{display:inline-flex;align-items:center;gap:4px;border-radius:32px;padding:4px 10px;font-size:12px;line-height:16px;letter-spacing:.24px;font-weight:700;background:var(--primary-softer);color:var(--ink)}
+.tag.purple{background:var(--primary-soft);color:var(--primary)}
+.tag.plain{font-weight:400;font-size:14px;line-height:20px;letter-spacing:0;color:var(--body)}
+.tag .i{width:12px;height:12px}
+.hv-meta{margin-left:auto;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700;color:var(--body);display:inline-flex;align-items:center;gap:4px}
+.hv-meta.green{color:var(--green-dark)}
+.hv-meter{position:absolute;left:16px;bottom:-16px;max-width:320px;background:#fff;border-radius:16px;padding:16px;display:flex;align-items:center;gap:14px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+.ring{position:relative;width:48px;height:48px;flex-shrink:0}
+.ring svg{width:48px;height:48px;transform:rotate(-90deg)}
+.ring b{position:absolute;inset:0;display:grid;place-items:center;font-size:11px;letter-spacing:.33px}
+.hv-meter strong{display:block;font-size:12px;line-height:16px;letter-spacing:.24px}
+.hv-meter span{display:block;font-size:14px;line-height:20px;color:var(--body);white-space:nowrap}
+.hv-pill{position:absolute;top:-12px;right:24px;background:var(--dark);color:var(--primary-softer);border-radius:9999px;padding:8px 16px;font-size:12px;line-height:16px;letter-spacing:.24px;font-weight:700;display:flex;gap:6px;align-items:center;white-space:nowrap;box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);z-index:2}
+
+/* ---------- 2. TRUST STRIP ---------- */
+.trust{background:#fff;border-radius:16px;padding:16px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.05));display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.benefit{display:flex;align-items:center;gap:14px;padding:16px}
+.b-ico{width:48px;height:48px;border-radius:48px;display:grid;place-items:center;flex-shrink:0;font-size:20px;color:var(--primary);background:var(--primary-soft)}
+.b-ico.green{background:var(--green-soft);color:var(--green)}
+.b-ico.deep{background:var(--primary-mid);color:var(--ink)}
+.benefit h4{font-size:16px;line-height:24px;font-weight:700;color:var(--ink)}
+.benefit p{font-size:14px;line-height:20px;color:var(--body)}
+
+/* ---------- 3. CATEGORIES ---------- */
+.bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.cat{padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:24px;min-height:240px;transition:transform .2s}
+.cat:hover{transform:translateY(-3px)}
+.cat-ico{width:56px;height:56px;border-radius:16px;background:var(--primary-soft);display:grid;place-items:center;font-size:24px;color:var(--primary);margin-bottom:8px}
+.cat h3{font-size:20px;line-height:28px;font-weight:700;padding-top:8px;color:var(--ink);margin-bottom:8px}
+.cat p{font-size:16px;line-height:24px;color:var(--body)}
+.cat .link-arrow .i{width:12px;height:12px}
+.cat-wide{grid-column:1/-1;flex-direction:row;align-items:center;min-height:104px;gap:16px}
+.cat-wide .left{display:flex;align-items:center;gap:16px}
+.cat-wide .cat-ico{margin:0}
+.cat-wide h3{padding:0;margin:0 0 4px}
+
+/* ---------- 4. FEATURED ---------- */
+.feat-note{font-size:14px;line-height:20px;font-style:italic;color:var(--body)}
+.feat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding-top:16px;margin-top:24px}
+.feat{padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.feat-top{display:flex;align-items:center;justify-content:space-between}
+.feat-top .badges{display:flex;gap:8px;flex-wrap:wrap}
+.feat h3{font-size:20px;line-height:28px;font-weight:700;padding-top:12px;color:var(--ink)}
+.feat .org{font-size:14px;line-height:20px;font-weight:700;color:var(--primary)}
+.feat .det{display:flex;gap:16px;padding-top:3.5px;flex-wrap:wrap;font-size:14px;line-height:20px;color:var(--body)}
+.feat .det span{display:inline-flex;align-items:center;gap:4px}
+.feat .det .i{width:13px;height:13px}
+.feat .desc{font-size:16px;line-height:24px;color:var(--body);padding-top:12px}
+.skills{display:flex;flex-wrap:wrap;gap:6px;padding-top:12px}
+.skill{background:var(--primary-softer);color:var(--ink);border-radius:6px;padding:4px 10px;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700}
+.view-btn{display:block;text-align:center;background:var(--primary-soft);color:var(--primary);border-radius:48px;padding:12px;font-weight:700;font-size:14px;line-height:20px;letter-spacing:.14px;transition:background .15s}
+.view-btn:hover{background:var(--primary-mid)}
+.center-link{display:flex;justify-content:center;padding-top:25px}
+
+/* ---------- 5. HOW IT WORKS ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:40px}
+.step{padding:24px;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.step-top{display:flex;align-items:center;justify-content:space-between}
+.step-num{font-size:36px;line-height:44px;letter-spacing:-.54px;font-weight:700;color:#e3dffa}
+.step h3{font-size:20px;line-height:28px;font-weight:700;padding-top:16px;margin-bottom:8px;color:var(--ink)}
+.step p{font-size:16px;line-height:24px;color:var(--body)}
+.step-foot{border-top:1px solid var(--primary-soft);padding-top:17px;margin-top:16px;display:flex;align-items:center;gap:8px;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700;color:var(--primary)}
+.step-foot::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.step-foot.green::before{background:var(--green)}
+
+/* ---------- 6. GROWTH ---------- */
+.growth{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:24px;align-items:center}
+.g-left{grid-column:1/span 5;padding-right:16px}
+.kicker{font-size:12px;line-height:16px;letter-spacing:.6px;text-transform:uppercase;font-weight:700;color:var(--primary);margin-bottom:8px}
+.g-left h2{margin-bottom:16px}
+.g-left .lead{margin-bottom:24px}
+.checks{list-style:none;display:flex;flex-direction:column;gap:16px;margin-bottom:40px}
+.checks li{display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:24px;color:var(--ink)}
+.checks .tick{width:24px;height:24px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center;font-size:11px;margin-top:2px;flex-shrink:0}
+.checks .tick .i{stroke-width:3}
+.mock{grid-column:6/span 7;background:#fff;border-radius:24px;overflow:hidden;box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+.chrome{background:var(--primary-softer);border-bottom:1px solid var(--primary-soft);display:flex;align-items:center;gap:12px;padding:12px 16px 13px}
+.dots{display:flex;gap:6px}
+.dots i{width:12px;height:12px;border-radius:50%;display:block}
+.dots i:nth-child(1){background:rgba(186,26,26,.7)}
+.dots i:nth-child(2){background:#c5c0ff}
+.dots i:nth-child(3){background:#78d9aa}
+.url{flex:1;display:flex;justify-content:center}
+.url span{background:#fff;border-radius:32px;padding:4px 12px;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700;color:var(--body);max-width:384px;width:100%;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mock-body{padding:24px;display:flex;flex-direction:column;gap:16px}
+.userbar{background:var(--primary-softer);border-radius:16px;padding:16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.who{display:flex;align-items:center;gap:12px}
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--primary);color:#fff;display:grid;place-items:center;font-size:20px;font-weight:700}
+.who h4{font-size:18px;line-height:28px;font-weight:700;display:inline}
+.who .sub{font-size:14px;line-height:20px;color:var(--body)}
+.who .nm{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.who .chip{padding:2px 8px}
+.strength{width:144px}
+.strength .t{display:flex;justify-content:flex-end;gap:8px;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700;color:var(--body);margin-bottom:4px}
+.strength .t b{color:var(--primary)}
+.bar{height:8px;border-radius:9999px;background:var(--primary-soft);overflow:hidden}
+.bar i{display:block;height:100%;width:85%;background:var(--primary);border-radius:9999px}
+.widgets{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.widget{background:#fff;border-radius:16px;padding:16px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.05));display:flex;flex-direction:column;gap:12px;min-width:0}
+.widget .wh{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.widget .wh h5{font-size:14px;line-height:20px;letter-spacing:.14px;font-weight:700}
+.widget .wh span{font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700;color:var(--primary);white-space:nowrap}
+.row{background:var(--primary-softer);border-radius:48px;padding:10px;display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0}
+.row + .row{margin-top:10px}
+.row .tx{min-width:0;padding-right:4px}
+.row .tx b{display:block;font-size:14px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .tx small{display:block;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700;color:var(--body)}
+.row .chip{padding:2px 10px;white-space:nowrap}
+.row .i{color:var(--primary);width:12px;height:15px;margin-right:6px}
+.skillbox{background:var(--primary-softer);border-radius:16px;padding:16px}
+.skillbox h5{font-size:14px;line-height:20px;letter-spacing:.14px;font-weight:700;margin-bottom:10px}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{background:#fff;border-radius:9999px;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;font-size:12px;line-height:16px;letter-spacing:.24px;font-weight:700;filter:drop-shadow(0 1px 1px rgba(0,0,0,.05))}
+.pill::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green)}
+.pill.p::before{background:var(--primary)}
+.pill.g::before{background:#737381}
+.pill em{font-style:normal;color:var(--body)}
+
+/* ---------- 7. BEGINNER ---------- */
+.begin{background:rgba(239,235,255,.7);border-radius:24px;overflow:hidden;position:relative;padding:64px 24px}
+.begin-in{max-width:672px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;z-index:1}
+.begin-ico{width:64px;height:64px;border-radius:16px;background:#fff;display:grid;place-items:center;font-size:28px;color:var(--primary);box-shadow:0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);margin-bottom:16px}
+.begin h2{margin-bottom:16px}
+.begin .lead{margin-bottom:40px}
+.journey{display:flex;align-items:center;gap:24px;margin-bottom:40px}
+.j{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;line-height:16px;letter-spacing:.24px;font-weight:700;color:var(--body)}
+.j span{width:32px;height:32px;border-radius:50%;background:#fff;display:grid;place-items:center;color:var(--primary);filter:drop-shadow(0 1px 1px rgba(0,0,0,.05))}
+.j.g span{color:var(--green)}
+.j-arrow{color:#c5c0ff;font-size:12px;margin-top:-20px}
+.begin .btn{padding:16px 32px}
+.ringdeco{position:absolute;right:-64px;bottom:-64px;width:384px;height:384px;pointer-events:none}
+
+/* ---------- 8. FAQ ---------- */
+.faq-list{max-width:768px;margin:40px auto 0;display:flex;flex-direction:column;gap:8px}
+.faq{background:#fff;border-radius:16px;box-shadow:0 1px 2px rgba(0,0,0,.05);overflow:hidden}
+.faq button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 24px;text-align:left;font-size:18px;line-height:28px;font-weight:700;color:var(--ink)}
+.faq .pm{width:32px;height:32px;border-radius:50%;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center;font-size:11px;flex-shrink:0;transition:transform .25s,background .25s}
+.faq .pm .i{stroke-width:2.5}
+.faq.open .pm{transform:rotate(45deg);background:var(--primary-mid)}
+.faq .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s}
+.faq.open .ans{grid-template-rows:1fr}
+.faq .ans>div{overflow:hidden}
+.faq .ans p{padding:0 24px 20px;font-size:16px;line-height:24px;color:var(--body)}
+.support{max-width:576px;margin:40px auto 0;background:var(--primary-softer);border-radius:16px;padding:24px;text-align:center}
+.support h4{font-size:20px;line-height:28px;font-weight:700;margin-bottom:4px}
+.support p{font-size:16px;line-height:24px;color:var(--body);margin-bottom:16px}
+.support .btn{padding:10px 24px}
+.support .btn .i{width:15px;height:15px;stroke-width:2}
+
+/* ---------- 9. FINAL CTA ---------- */
+.final{background:var(--cta);border-radius:24px;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);overflow:hidden;position:relative;padding:80px 24px;text-align:center}
+.final .g1,.final .g2{position:absolute;border-radius:50%;width:320px;height:320px;filter:blur(20px);pointer-events:none}
+.final .g1{left:-96px;top:-96px;background:rgba(239,235,255,.1)}
+.final .g2{right:-96px;bottom:-96px;background:rgba(148,246,196,.1)}
+.final-in{max-width:672px;margin:0 auto;position:relative}
+.final h2{font-size:56px;line-height:64px;letter-spacing:-1.12px;color:#fff;margin-bottom:16px}
+.final p{font-size:18px;line-height:28px;color:var(--primary-softer);max-width:576px;margin:0 auto 40px}
+.final .row-b{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.btn-cta{background:#fff;color:var(--primary);padding:16px 32px;box-shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -4px rgba(0,0,0,.1)}
+.ulink{color:var(--primary-softer);font-weight:700;font-size:14px;line-height:20px;letter-spacing:.14px;text-decoration:underline;padding:8px 16px}
+.ulink:hover{color:#fff}
+
+footer{padding:24px 0 40px;text-align:center;font-size:14px;color:var(--body)}
+
+/* ---------- MODAL FORM ---------- */
+.modal{position:fixed;inset:0;background:rgba(26,25,45,.55);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:16px;z-index:100}
+.modal.show{display:flex}
+.panel{background:#fff;border-radius:24px;width:100%;max-width:440px;padding:32px;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,.25);max-height:100%;overflow:auto}
+.panel .x{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:var(--primary-soft);color:var(--primary);display:grid;place-items:center;font-size:12px}
+.panel .x .i{stroke-width:2.5;transform:rotate(45deg)}
+.panel h3{font-size:28px;line-height:36px;letter-spacing:-.4px;margin-bottom:4px}
+.panel .sub{font-size:16px;line-height:24px;color:var(--body);margin-bottom:24px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;line-height:16px;letter-spacing:.24px;font-weight:700;margin-bottom:6px;color:var(--ink)}
+.field input{width:100%;font:inherit;font-size:16px;padding:12px 18px;border-radius:48px;border:1px solid #e3dffa;background:var(--primary-softer);color:var(--ink);outline:none;transition:border .15s,box-shadow .15s}
+.field input:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(82,70,206,.18);background:#fff}
+.field input.bad{border-color:#ba1a1a}
+.panel .btn{width:100%;padding:14px 32px;font-size:15px}
+.panel .btn[disabled]{opacity:.7;cursor:wait}
+.msg{display:none;margin-top:16px;padding:12px 16px;border-radius:16px;font-size:14px;line-height:20px;font-weight:700}
+.msg.ok{display:block;background:var(--green-soft);color:var(--green)}
+.msg.err{display:block;background:rgba(186,26,26,.1);color:#ba1a1a}
+
+
+/* ---------- OPPORTUNITY DIALOG ---------- */
+.panel.wide{max-width:880px;padding:32px}
+.dlg-head{padding-right:40px;margin-bottom:16px}
+.dlg-head h3{margin-bottom:4px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.fchip{border-radius:9999px;padding:8px 16px;font-size:13px;line-height:16px;font-weight:700;background:var(--primary-softer);color:var(--ink);transition:background .15s,color .15s}
+.fchip:hover{background:var(--primary-soft)}
+.fchip.on{background:var(--primary);color:#fff}
+.olist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.oitem{background:var(--primary-softer);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.oitem h4{font-size:18px;line-height:26px;font-weight:700;color:var(--ink)}
+.oitem .org{font-size:14px;line-height:20px;font-weight:700;color:var(--primary)}
+.oitem .det{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;line-height:20px;color:var(--body)}
+.oitem .det span{display:inline-flex;align-items:center;gap:4px}
+.oitem .det .i{width:12px;height:12px}
+.oitem .view-btn{margin-top:10px;background:#fff}
+.oitem .view-btn:hover{background:var(--primary-soft)}
+.empty{grid-column:1/-1;text-align:center;color:var(--body);padding:24px}
+.dbadges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.dtitle{font-size:28px;line-height:36px;letter-spacing:-.4px;font-weight:700;color:var(--ink)}
+.dorg{font-size:16px;line-height:24px;font-weight:700;color:var(--primary);margin-bottom:12px}
+.dfacts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:16px 0}
+.dfacts div{background:var(--primary-softer);border-radius:16px;padding:12px 16px}
+.dfacts small{display:block;font-size:11px;line-height:14px;letter-spacing:.33px;font-weight:700;color:var(--body);text-transform:uppercase}
+.dfacts b{display:block;font-size:15px;line-height:22px;color:var(--ink)}
+.ddesc{font-size:16px;line-height:26px;color:var(--body);margin-bottom:8px}
+.dactions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.back{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:700;color:var(--primary);margin-bottom:16px}
+.back .i{transform:rotate(180deg);width:12px;height:12px;stroke-width:2.5}
+.save.on{color:var(--primary);background:var(--primary-soft)}
+.save.on .i{fill:currentColor}
+@media (max-width:720px){.olist{grid-template-columns:1fr}.dfacts{grid-template-columns:1fr}.panel.wide{padding:24px 20px}}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1100px){
+  .trust{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:48px;line-height:56px}
+  .final h2{font-size:48px;line-height:56px}
+  .final{padding:72px 24px}
+}
+@media (max-width:1024px){
+  .hero{padding:48px 0 64px}
+  .hero-grid{grid-template-columns:1fr;min-height:0;gap:56px}
+  .hero-copy,.hero-visual{grid-column:1/-1}
+  .hero-copy{padding-right:0}
+  .hero-visual{max-width:560px;margin:0 auto;aspect-ratio:auto;display:flex;flex-direction:column;gap:16px;padding-top:24px}
+  .hv-bg{display:none}
+  .hv-card,.hv-meter,.hv-pill{position:relative;inset:auto;left:auto;right:auto;top:auto;bottom:auto;max-width:none}
+  .hv-pill{align-self:flex-end;order:-1;margin-bottom:-4px}
+  .hv-meter{align-self:flex-start}
+  .bento,.feat-grid,.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .growth{grid-template-columns:1fr;gap:40px}
+  .g-left,.mock{grid-column:1/-1}
+  .g-left{padding-right:0}
+}
+@media (max-width:720px){
+  .wrap{padding:0 16px}
+  h2{font-size:28px;line-height:36px}
+  .lead,.hero-sub{font-size:16px;line-height:26px}
+  .hero h1{font-size:38px;line-height:46px;letter-spacing:-.8px}
+  .trust{grid-template-columns:1fr;padding:8px}
+  .bento,.feat-grid,.steps{grid-template-columns:1fr}
+  .cat{min-height:0}
+  .cat-wide{flex-direction:column;align-items:flex-start}
+  .cat-wide .left{align-items:flex-start}
+  .widgets{grid-template-columns:1fr}
+  .mock-body{padding:16px}
+  .chrome .url span{font-size:10px}
+  .journey{gap:12px}
+  .begin{padding:48px 16px}
+  .final{padding:56px 20px}
+  .final h2{font-size:34px;line-height:42px;letter-spacing:-.6px}
+  .faq button{font-size:16px;line-height:24px;padding:16px}
+  .faq .ans p{padding:0 16px 16px}
+  .sec-head{align-items:flex-start}
+  .hv-pill{font-size:11px;padding:8px 12px}
+  .panel{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- ICON SPRITE -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+    <symbol id="i-bookmark" viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-circlecheck" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-1.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98 1.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2Z"/></symbol>
+    <symbol id="i-terminal" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m7 11 2-2-2-2M11 13h4M3 6.5h18"/></symbol>
+    <symbol id="i-person" viewBox="0 0 24 24"><path d="M15 21h5a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h3"/><circle cx="9" cy="11" r="3"/><path d="M5 21v-1a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v1"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z"/><path d="M22 10v6M6 12.5V16a6 3 0 0 0 12 0v-3.5"/></symbol>
+    <symbol id="i-handheart" viewBox="0 0 24 24"><path d="M11 14h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 16"/><path d="m7 20 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 15 6 6"/><path d="M19.5 8.5c.7-.7 1.5-1.6 1.5-2.7A2.73 2.73 0 0 0 16 4a2.78 2.78 0 0 0-5 1.8c0 1.2.8 2 1.5 2.8L16 12Z"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3.9a2 2 0 0 1 1.69.9l.81 1.2a2 2 0 0 0 1.67.9H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2z"/><path d="m12 10 1.2 2.4 2.6.4-1.9 1.8.5 2.6-2.4-1.3-2.4 1.3.5-2.6-1.9-1.8 2.6-.4z"/></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-timer" viewBox="0 0 24 24"><circle cx="12" cy="14" r="8"/><path d="M12 10v4l2 2M9 2h6"/></symbol>
+    <symbol id="i-laptop" viewBox="0 0 24 24"><path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-cast" viewBox="0 0 24 24"><path d="M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6M2 12a9 9 0 0 1 8 8M2 16a5 5 0 0 1 4 4M2 20h.01"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+    <symbol id="i-steps" viewBox="0 0 24 24"><path d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0Z"/><path d="M20 20v-2.38c0-2.12 1.03-3.12 1-5.62-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0Z"/><path d="M16 17h4M4 13h4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14M12 5v14"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+  </defs>
+</svg>
+
+<main>
+
+<!-- ===================== 1. HERO ===================== -->
+<section class="hero" id="top">
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="eyebrow">Your next chapter starts here</div>
+        <h1>You don't need to be an expert to <span class="hl">get started<svg viewBox="0 0 240 12" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 C 40 2, 80 2, 120 6 S 200 10, 238 4" fill="none" stroke="#c5c0ff" stroke-width="3" stroke-linecap="round"/></svg></span>.</h1>
+        <p class="hero-sub">From internships and competitions to courses and real-world projects, discover opportunities that help you learn, grow, and build the future you want.</p>
+        <div class="cta-row">
+          <a href="#categories" class="btn btn-primary">Explore Opportunities <svg class="i"><use href="#i-arrow"/></svg></a>
+          <button type="button" class="btn btn-white js-open-form">Build My Profile</button>
+        </div>
+        <div class="reassure"><span>✨</span><span>Every expert started somewhere. This could be your somewhere.</span></div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hv-bg"></div>
+
+        <div class="hv-card hv-c1">
+          <div class="hv-row">
+            <span class="chip chip-green"><svg class="i"><use href="#i-circlecheck"/></svg>Beginner friendly</span>
+            <button type="button" class="save" aria-label="Save opportunity"><svg class="i"><use href="#i-bookmark"/></svg></button>
+          </div>
+          <div class="hv-title">Python Development Internship</div>
+          <div class="hv-org">TechNova Solutions</div>
+          <div class="hv-tags">
+            <span class="tag purple">Python</span>
+            <span class="tag plain"><svg class="i"><use href="#i-globe"/></svg>Remote</span>
+            <span class="hv-meta">Stipend • 8 wks</span>
+          </div>
+        </div>
+
+        <div class="hv-card hv-c2">
+          <div class="hv-row">
+            <span class="chip chip-purple" style="padding:2px 12px">Competition</span>
+            <span class="hv-meta" style="margin:0">Level: Beginner</span>
+          </div>
+          <div class="hv-title">UI/UX Design Challenge</div>
+          <div class="hv-org">DesignSphere Community</div>
+          <div class="hv-tags">
+            <span class="tag">Figma</span>
+            <span class="tag">User Research</span>
+            <span class="hv-meta green"><svg class="i" style="width:13px;height:13px"><use href="#i-timer"/></svg>14d left</span>
+          </div>
+        </div>
+
+        <div class="hv-meter">
+          <div class="ring">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="20" fill="none" stroke="#efebff" stroke-width="4"/><circle cx="24" cy="24" r="20" fill="none" stroke="#16845b" stroke-width="4" stroke-linecap="round" stroke-dasharray="100.5 125.7"/></svg>
+            <b>80%</b>
+          </div>
+          <div><strong>Student Profile</strong><span>Next: Add portfolio link</span></div>
+        </div>
+
+        <div class="hv-pill"><span>Level 1 Explorer → Level 2 Builder</span><span>🚀</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 2. TRUST & VALUE STRIP ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="trust">
+      <div class="benefit">
+        <div class="b-ico"><svg class="i"><use href="#i-layers"/></svg></div>
+        <div><h4>Opportunities for Every Skill Level</h4><p>Zero gatekeeping to get started</p></div>
+      </div>
+      <div class="benefit">
+        <div class="b-ico green"><svg class="i"><use href="#i-zap"/></svg></div>
+        <div><h4>Learn by Doing</h4><p>Direct hands-on experience</p></div>
+      </div>
+      <div class="benefit">
+        <div class="b-ico"><svg class="i"><use href="#i-folder"/></svg></div>
+        <div><h4>Build Your Portfolio</h4><p>Proof of real-world skills</p></div>
+      </div>
+      <div class="benefit">
+        <div class="b-ico deep"><svg class="i"><use href="#i-compass"/></svg></div>
+        <div><h4>Discover New Possibilities</h4><p>Uncover unseen paths &amp; roles</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 3. OPPORTUNITY CATEGORIES ===================== -->
+<section class="sec" id="categories">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>There's more out there for you.</h2>
+        <p class="lead">Whether you're looking for your first internship or your next big challenge, find something that fits your journey.</p>
+      </div>
+      <a href="#" class="link-arrow" data-cat="all">Explore All Opportunities <svg class="i"><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="bento">
+      <a href="#" class="card cat" data-cat="internship">
+        <div><div class="cat-ico"><svg class="i"><use href="#i-briefcase"/></svg></div><h3>Internships</h3><p>Gain experience and explore your career interests.</p></div>
+        <span class="link-arrow">Explore <svg class="i"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="card cat" data-cat="course">
+        <div><div class="cat-ico"><svg class="i"><use href="#i-book"/></svg></div><h3>Online Courses</h3><p>Learn new skills at your own pace.</p></div>
+        <span class="link-arrow">Explore <svg class="i"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="card cat" data-cat="competition">
+        <div><div class="cat-ico"><svg class="i"><use href="#i-trophy"/></svg></div><h3>Hackathons &amp; Competitions</h3><p>Challenge yourself, solve problems, and show what you can do.</p></div>
+        <span class="link-arrow">Explore <svg class="i"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="card cat" data-cat="project">
+        <div><div class="cat-ico"><svg class="i"><use href="#i-terminal"/></svg></div><h3>Student Projects</h3><p>Turn your ideas into something real.</p></div>
+        <span class="link-arrow">Explore <svg class="i"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="card cat" data-cat="workshop">
+        <div><div class="cat-ico"><svg class="i"><use href="#i-person"/></svg></div><h3>Workshops</h3><p>Learn directly from practical sessions and experts.</p></div>
+        <span class="link-arrow">Explore <svg class="i"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="card cat" data-cat="scholarship">
+        <div><div class="cat-ico"><svg class="i"><use href="#i-cap"/></svg></div><h3>Scholarships</h3><p>Explore opportunities that can support your education.</p></div>
+        <span class="link-arrow">Explore <svg class="i"><use href="#i-arrow"/></svg></span>
+      </a>
+      <a href="#" class="card cat cat-wide" data-cat="volunteering">
+        <div class="left">
+          <div class="cat-ico"><svg class="i"><use href="#i-handheart"/></svg></div>
+          <div><h3>Volunteering</h3><p>Make a difference while building useful skills.</p></div>
+        </div>
+        <span class="link-arrow">Explore Volunteering <svg class="i"><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 4. FEATURED OPPORTUNITIES ===================== -->
+<section class="sec" id="opportunities">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <h2>Your next opportunity could be here.</h2>
+        <p class="lead">Discover ways to learn, gain experience, and take the next step.</p>
+      </div>
+      <p class="feat-note">Sample curated listings for demonstration.</p>
+    </div>
+
+    <div class="feat-grid">
+      <article class="card feat">
+        <div>
+          <div class="feat-top">
+            <div class="badges"><span class="chip chip-purple">Internship</span><span class="chip chip-green"><svg class="i"><use href="#i-circlecheck"/></svg>Beginner friendly</span></div>
+            <button type="button" class="save" aria-label="Bookmark"><svg class="i"><use href="#i-bookmark"/></svg></button>
+          </div>
+          <h3>Python Development Internship</h3>
+          <div class="org">TechNova Solutions</div>
+          <div class="det"><span><svg class="i"><use href="#i-pin"/></svg>Remote</span><span><svg class="i"><use href="#i-timer"/></svg>4–8 weeks</span></div>
+          <p class="desc">Move beyond tutorials, practise Python, and build projects that strengthen your portfolio.</p>
+          <div class="skills"><span class="skill">Python</span><span class="skill">Problem-solving</span></div>
+        </div>
+        <a href="#" class="view-btn" data-opp="1">View Opportunity</a>
+      </article>
+
+      <article class="card feat">
+        <div>
+          <div class="feat-top">
+            <div class="badges"><span class="chip chip-purple">Competition</span><span class="chip chip-light">Beginner</span></div>
+            <button type="button" class="save" aria-label="Bookmark"><svg class="i"><use href="#i-bookmark"/></svg></button>
+          </div>
+          <h3>UI/UX Design Challenge</h3>
+          <div class="org">DesignSphere Community</div>
+          <div class="det"><span><svg class="i"><use href="#i-laptop"/></svg>Online</span><span><svg class="i"><use href="#i-timer"/></svg>In 14 days</span></div>
+          <p class="desc">Explore user-centered design, solve a practical challenge, and showcase your creativity.</p>
+          <div class="skills"><span class="skill">Figma</span><span class="skill">Wireframing</span><span class="skill">User Research</span></div>
+        </div>
+        <a href="#" class="view-btn" data-opp="2">View Opportunity</a>
+      </article>
+
+      <article class="card feat">
+        <div>
+          <div class="feat-top">
+            <div class="badges"><span class="chip chip-purple">Workshop</span><span class="chip chip-light">Beginner</span></div>
+            <button type="button" class="save" aria-label="Bookmark"><svg class="i"><use href="#i-bookmark"/></svg></button>
+          </div>
+          <h3>Frontend Development Workshop</h3>
+          <div class="org">CodeCraft Learning</div>
+          <div class="det"><span><svg class="i"><use href="#i-cast"/></svg>Online</span><span><svg class="i"><use href="#i-users"/></svg>Interactive live session</span></div>
+          <p class="desc">Build your web development foundations and bring your first website ideas to life.</p>
+          <div class="skills"><span class="skill">HTML</span><span class="skill">CSS</span><span class="skill">JavaScript</span></div>
+        </div>
+        <a href="#" class="view-btn" data-opp="3">View Opportunity</a>
+      </article>
+    </div>
+
+    <div class="center-link"><a href="#" class="link-arrow" data-cat="all">See All Opportunities <svg class="i"><use href="#i-arrow"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ===================== 5. HOW IT WORKS ===================== -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Three steps to get moving.</h2>
+      <p class="lead">Getting started is easier when you know where to begin.</p>
+    </div>
+
+    <div class="steps">
+      <div class="card step">
+        <div>
+          <div class="step-top"><div class="b-ico"><svg class="i"><use href="#i-person"/></svg></div><span class="step-num">01</span></div>
+          <h3>Create Your Profile</h3>
+          <p>Tell us what you're interested in, what you know, and what you'd love to learn.</p>
+        </div>
+        <div class="step-foot">Takes under 2 minutes</div>
+      </div>
+      <div class="card step">
+        <div>
+          <div class="step-top"><div class="b-ico"><svg class="i"><use href="#i-compass"/></svg></div><span class="step-num">02</span></div>
+          <h3>Discover Your Opportunities</h3>
+          <p>Explore options that match your interests, experience level, and goals.</p>
+        </div>
+        <div class="step-foot">Curated recommendations</div>
+      </div>
+      <div class="card step">
+        <div>
+          <div class="step-top"><div class="b-ico"><svg class="i"><use href="#i-trend"/></svg></div><span class="step-num">03</span></div>
+          <h3>Apply, Learn, and Grow</h3>
+          <p>Take the next step, gain experience, and keep track of your progress.</p>
+        </div>
+        <div class="step-foot green">Step-by-step milestones</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 6. STUDENT GROWTH FEATURE ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="growth">
+      <div class="g-left">
+        <div class="kicker">Your growth hub</div>
+        <h2>Small steps today. Bigger possibilities tomorrow.</h2>
+        <p class="lead">Keep your progress in one place. Track applications, save interesting opportunities, showcase your projects, and see how your skills grow over time.</p>
+        <ul class="checks">
+          <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Keep track of your applications.</li>
+          <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Save opportunities to explore later.</li>
+          <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Showcase your projects and achievements.</li>
+          <li><span class="tick"><svg class="i"><use href="#i-check"/></svg></span>Keep your skills and student profile up to date.</li>
+        </ul>
+        <button type="button" class="btn btn-primary js-open-form">Build My Profile <svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
+
+      <div class="mock">
+        <div class="chrome">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <div class="url"><span>opportunityx.com/student/alex-chen</span></div>
+        </div>
+        <div class="mock-body">
+          <div class="userbar">
+            <div class="who">
+              <div class="avatar">AC</div>
+              <div>
+                <div class="nm"><h4>Alex Chen</h4><span class="chip chip-green">Active Learner</span></div>
+                <div class="sub">2nd Year CS &amp; Design</div>
+              </div>
+            </div>
+            <div class="strength">
+              <div class="t"><span>Profile Strength</span><b>85%</b></div>
+              <div class="bar"><i></i></div>
+            </div>
+          </div>
+
+          <div class="widgets">
+            <div class="widget">
+              <div class="wh"><h5>Active Applications</h5><span>2 active</span></div>
+              <div>
+                <div class="row"><div class="tx"><b>TechNova Python Internship</b><small>Submitted 3d ago</small></div><span class="chip chip-purple">Under Review</span></div>
+                <div class="row"><div class="tx"><b>DesignSphere Hackathon</b><small>Submitted yesterday</small></div><span class="chip chip-green">Submitted</span></div>
+              </div>
+            </div>
+            <div class="widget">
+              <div class="wh"><h5>Saved Opportunities</h5><span>View all (5)</span></div>
+              <div>
+                <div class="row"><div class="tx"><b>Frontend Workshop</b><small>Live Session • CodeCraft</small></div><svg class="i"><use href="#i-bookmark"/></svg></div>
+                <div class="row"><div class="tx"><b>GreenTech Challenge</b><small>Starts next month</small></div><svg class="i"><use href="#i-bookmark"/></svg></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skillbox">
+            <h5>Verified &amp; Target Skills</h5>
+            <div class="pills">
+              <span class="pill">Python <em>(Intermediate)</em></span>
+              <span class="pill p">Figma <em>(Beginner)</em></span>
+              <span class="pill g">Tailwind CSS <em>(Learning)</em></span>
+              <span class="pill">Git &amp; GitHub <em>(Intermediate)</em></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 7. BEGINNER ENCOURAGEMENT ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="begin">
+      <svg class="ringdeco" viewBox="0 0 384 384" aria-hidden="true"><circle cx="192" cy="192" r="154" fill="none" stroke="#e9e5ff" stroke-width="40" stroke-dasharray="40 20.5"/></svg>
+      <div class="begin-in">
+        <div class="begin-ico"><svg class="i"><use href="#i-steps"/></svg></div>
+        <h2>Start where you are. Grow at your own pace.</h2>
+        <p class="lead">You don't need a perfect resume, a long list of achievements, or all the answers. Start with what interests you, learn something new, and take one step at a time.</p>
+        <div class="journey">
+          <div class="j"><span>1</span>Curiosity</div>
+          <svg class="i j-arrow"><use href="#i-arrow"/></svg>
+          <div class="j"><span>2</span>First Try</div>
+          <svg class="i j-arrow"><use href="#i-arrow"/></svg>
+          <div class="j g"><span>3</span>Confidence</div>
+        </div>
+        <button type="button" class="btn btn-primary js-open-form">Find Your First Opportunity <svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 8. FAQ ===================== -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <h2>Got questions? We've got answers.</h2>
+      <p class="lead">Starting something new can feel overwhelming. Here's what you might want to know.</p>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq"><button type="button" aria-expanded="false"><span>What is OpportunityX?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>OpportunityX is a place for students to discover internships, courses, competitions, workshops, scholarships, projects and volunteering, all in one place.</p></div></div></div>
+      <div class="faq"><button type="button" aria-expanded="false"><span>Is OpportunityX suitable for beginners?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>Absolutely. Many opportunities are marked beginner friendly, so you can start without any prior experience.</p></div></div></div>
+      <div class="faq"><button type="button" aria-expanded="false"><span>Is OpportunityX free to use?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>Yes. Creating a profile and browsing opportunities is free for students.</p></div></div></div>
+      <div class="faq"><button type="button" aria-expanded="false"><span>How do I find opportunities that match my skills?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>Build your profile with your interests and skills, and we'll show recommendations that fit your level and goals.</p></div></div></div>
+      <div class="faq"><button type="button" aria-expanded="false"><span>How do I apply for an opportunity?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>Open any listing, review the details, and follow the apply link. You can save it first if you want to decide later.</p></div></div></div>
+      <div class="faq"><button type="button" aria-expanded="false"><span>Can I apply if I don't have work experience?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>Yes. Lots of opportunities are designed for first-timers, and your projects and curiosity count for a lot.</p></div></div></div>
+      <div class="faq"><button type="button" aria-expanded="false"><span>Can I save opportunities for later?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>Yes. Tap the bookmark icon on any card and it will be waiting in your saved list.</p></div></div></div>
+      <div class="faq"><button type="button" aria-expanded="false"><span>How can I track my applications?</span><span class="pm"><svg class="i"><use href="#i-plus"/></svg></span></button><div class="ans"><div><p>Your dashboard keeps every application and its status in one place, so you always know what's next.</p></div></div></div>
+    </div>
+
+    <div class="support">
+      <h4>Still have questions?</h4>
+      <p>Can't find what you're looking for? We're here to help.</p>
+      <a href="#" class="btn btn-white js-open-form"><svg class="i"><use href="#i-mail"/></svg>Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 9. FINAL CTA ===================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="final">
+      <div class="g1"></div><div class="g2"></div>
+      <div class="final-in">
+        <h2>Your future won't build itself. Let's get started.</h2>
+        <p>You have the potential. Now find the opportunities to put it into action.</p>
+        <div class="row-b">
+          <a href="#categories" class="btn btn-cta">Start Exploring <svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#" class="ulink js-open-form">Create Your Profile</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap">© OpportunityX</div></footer>
+
+<!-- ===================== PROFILE FORM (name, email, phone) ===================== -->
+<div class="modal" id="formModal" role="dialog" aria-modal="true" aria-labelledby="formTitle">
+  <div class="panel">
+    <button type="button" class="x" id="closeForm" aria-label="Close"><svg class="i"><use href="#i-plus"/></svg></button>
+    <h3 id="formTitle">Build your profile</h3>
+    <p class="sub">Tell us how to reach you and we'll get you started.</p>
+    <form id="profileForm" novalidate>
+      <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" placeholder="Your full name" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required></div>
+      <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="+91 98765 43210" autocomplete="tel" required></div>
+      <button type="button" class="btn btn-primary" id="submitBtn">Submit</button>
+      <div class="msg" id="formMsg" role="status"></div>
+    </form>
+  </div>
+</div>
+
+
+<!-- ===================== OPPORTUNITY LIST / DETAIL DIALOG ===================== -->
+<div class="modal" id="dlg" role="dialog" aria-modal="true" aria-label="Opportunities">
+  <div class="panel wide">
+    <button type="button" class="x" id="closeDlg" aria-label="Close"><svg class="i"><use href="#i-plus"/></svg></button>
+    <div id="dlgBody"></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx9gwrg4FzKLVI1dr-yhRYE3iMB9hwMDo8a0xxj3WizicuAxtKzOlWCvgaZeag5y2k/exec";
+
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll(".faq button").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var item = btn.parentElement;
+      var open = item.classList.toggle("open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+  });
+
+  /* ---------- Modal open / close ---------- */
+  var modal = document.getElementById("formModal");
+  var form = document.getElementById("profileForm");
+  var msg = document.getElementById("formMsg");
+  var submitBtn = document.getElementById("submitBtn");
+  var currentCourse = "";
+
+  function openForm(e, title, sub, course) {
+    currentCourse = course || "";
+    if (e && e.preventDefault) e.preventDefault();
+    document.getElementById("formTitle").textContent = title || "Build your profile";
+    document.querySelector("#formModal .sub").textContent = sub || "Tell us how to reach you and we'll get you started.";
+    msg.className = "msg";
+    msg.textContent = "";
+    modal.classList.add("show");
+    setTimeout(function () { document.getElementById("f-name").focus(); }, 50);
+  }
+  function closeForm() { modal.classList.remove("show"); }
+
+  document.querySelectorAll(".js-open-form").forEach(function (el) {
+    el.addEventListener("click", function (e) { openForm(e); });
+  });
+  document.getElementById("closeForm").addEventListener("click", closeForm);
+  modal.addEventListener("click", function (e) { if (e.target === modal) closeForm(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeForm(); });
+
+  /* ---------- Messages ---------- */
+  function showSuccess() {
+    msg.className = "msg ok";
+    msg.textContent = "Thank you! Your details have been saved.";
+    form.reset();
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit";
+  }
+  function showError() {
+    msg.className = "msg err";
+    msg.textContent = "Something went wrong. Please try again.";
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit";
+  }
+
+  /* ---------- Submit to Google Sheets (GET + no-cors, works on file://) ---------- */
+  function handleSubmit(e) {
+    if (e) e.preventDefault();
+    if (submitBtn.disabled) return;
+
+    var name = form.elements["name"].value.trim();
+    var email = form.elements["email"].value.trim();
+    var phone = form.elements["phone"].value.trim();
+
+    var ok = true;
+    ["name", "email", "phone"].forEach(function (k) { form.elements[k].classList.remove("bad"); });
+    if (!name) { form.elements["name"].classList.add("bad"); ok = false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { form.elements["email"].classList.add("bad"); ok = false; }
+    if (phone.replace(/\D/g, "").length < 7) { form.elements["phone"].classList.add("bad"); ok = false; }
+    if (!ok) {
+      msg.className = "msg err";
+      msg.textContent = "Please fill in your name, a valid email and phone number.";
+      return;
+    }
+
+    msg.className = "msg";
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    var url = SCRIPT_URL + "?" + new URLSearchParams({ name: name, email: email, phone: phone, course: currentCourse });
+
+    fetch(url, { method: "GET", mode: "no-cors" })
+      .then(() => showSuccess())
+      .catch(() => showError());
+  }
+
+  submitBtn.addEventListener("click", handleSubmit);
+  form.addEventListener("submit", handleSubmit);
+  form.querySelectorAll("input").forEach(function (inp) {
+    inp.addEventListener("keydown", function (e) { if (e.key === "Enter") handleSubmit(e); });
+  });
+
+  /* ---------- Links: smooth-scroll to sections, ignore empty "#" placeholders ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var id = a.getAttribute("href");
+      if (a.classList.contains("js-open-form")) return; // handled by the modal opener
+      e.preventDefault();
+      if (id.length > 1) {
+        var target = document.querySelector(id);
+        if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+
+  /* ---------- Opportunities: list + detail dialogs ---------- */
+  var OPPS = [
+    {id:1,cat:"internship",title:"Python Development Internship",org:"TechNova Solutions",mode:"Remote",dur:"4–8 weeks",level:"Beginner friendly",desc:"Move beyond tutorials, practise Python, and build projects that strengthen your portfolio.",skills:["Python","Problem-solving"]},
+    {id:2,cat:"competition",title:"UI/UX Design Challenge",org:"DesignSphere Community",mode:"Online",dur:"In 14 days",level:"Beginner",desc:"Explore user-centered design, solve a practical challenge, and showcase your creativity.",skills:["Figma","Wireframing","User Research"]},
+    {id:3,cat:"workshop",title:"Frontend Development Workshop",org:"CodeCraft Learning",mode:"Online",dur:"Interactive live session",level:"Beginner",desc:"Build your web development foundations and bring your first website ideas to life.",skills:["HTML","CSS","JavaScript"]},
+    {id:4,cat:"internship",title:"Digital Marketing Internship",org:"BrightPath Media",mode:"Hybrid",dur:"6 weeks",level:"Beginner friendly",desc:"Learn how campaigns are planned, written and measured while working on real social content.",skills:["Content","Analytics"]},
+    {id:5,cat:"internship",title:"Data Analysis Internship",org:"InsightLab",mode:"Remote",dur:"8 weeks",level:"Some basics helpful",desc:"Clean data, build simple dashboards and present findings to a small team.",skills:["Excel","SQL","Charts"]},
+    {id:6,cat:"course",title:"Python for Beginners",org:"CodeCraft Learning",mode:"Online",dur:"Self-paced, 6 weeks",level:"Beginner",desc:"A friendly start to programming with short lessons, practice tasks and a final mini project.",skills:["Python","Logic"]},
+    {id:7,cat:"course",title:"Introduction to UI Design",org:"DesignSphere Academy",mode:"Online",dur:"Self-paced, 4 weeks",level:"Beginner",desc:"Learn layout, colour and typography basics, then design your first app screen.",skills:["Figma","Design basics"]},
+    {id:8,cat:"competition",title:"GreenTech Challenge",org:"EcoInnovate",mode:"Online",dur:"Starts next month",level:"All levels",desc:"Team up and prototype an idea that makes everyday life more sustainable.",skills:["Teamwork","Prototyping"]},
+    {id:9,cat:"project",title:"Open-Source Starter Project",org:"Build Together Community",mode:"Remote",dur:"Ongoing",level:"Beginner friendly",desc:"Make your first contribution with mentors guiding you through issues, reviews and merges.",skills:["Git & GitHub","Collaboration"]},
+    {id:10,cat:"workshop",title:"Resume & Portfolio Workshop",org:"CareerLaunch",mode:"Online",dur:"2 hours",level:"Beginner",desc:"Turn what you already know into a clear resume and a simple portfolio you can share.",skills:["Resume","Portfolio"]},
+    {id:11,cat:"scholarship",title:"Future Builders Scholarship",org:"Learner Fund",mode:"Online application",dur:"Rolling applications",level:"All students",desc:"Support for students who want to keep learning, with funding towards courses and materials.",skills:["Application","Essay"]},
+    {id:12,cat:"volunteering",title:"Community Tech Volunteer",org:"Giving Hands",mode:"Hybrid",dur:"Flexible hours",level:"Beginner friendly",desc:"Help local groups with simple tech tasks and build skills while making a difference.",skills:["Communication","Teamwork"]}
+  ];
+  var CATS = [["all","All"],["internship","Internships"],["course","Online Courses"],["competition","Hackathons & Competitions"],["project","Student Projects"],["workshop","Workshops"],["scholarship","Scholarships"],["volunteering","Volunteering"]];
+  var TYPE = {internship:"Internship",course:"Course",competition:"Competition",project:"Project",workshop:"Workshop",scholarship:"Scholarship",volunteering:"Volunteering"};
+  var dlg = document.getElementById("dlg");
+  var dlgBody = document.getElementById("dlgBody");
+  var saved = {};
+
+  function actionLabel(o) { return (o.cat === "course" || o.cat === "workshop" || o.cat === "project") ? "Enroll Now" : "Apply Now"; }
+  function det(o) {
+    return '<span><svg class="i"><use href="#i-laptop"/></svg>' + o.mode + '</span><span><svg class="i"><use href="#i-timer"/></svg>' + o.dur + '</span>';
+  }
+
+  function renderList(cat) {
+    var title = "All opportunities";
+    CATS.forEach(function (c) { if (c[0] === cat && cat !== "all") title = c[1]; });
+    var chips = CATS.map(function (c) {
+      return '<button type="button" class="fchip' + (c[0] === cat ? ' on' : '') + '" data-cat="' + c[0] + '">' + c[1] + '</button>';
+    }).join("");
+    var items = OPPS.filter(function (o) { return cat === "all" || o.cat === cat; }).map(function (o) {
+      return '<article class="oitem"><div class="dbadges" style="margin:0 0 4px"><span class="chip chip-purple">' + TYPE[o.cat] + '</span><span class="chip chip-light">' + o.level + '</span></div>' +
+        '<h4>' + o.title + '</h4><div class="org">' + o.org + '</div><div class="det">' + det(o) + '</div>' +
+        '<a href="#" class="view-btn" data-opp="' + o.id + '">View Opportunity</a></article>';
+    }).join("") || '<p class="empty">Nothing here yet. Check back soon.</p>';
+    dlgBody.innerHTML = '<div class="dlg-head"><h3>' + title + '</h3><p class="sub" style="margin:0">Sample curated listings for demonstration.</p></div>' +
+      '<div class="fchips">' + chips + '</div><div class="olist">' + items + '</div>';
+  }
+
+  function renderDetail(id, fromCat) {
+    var o = OPPS.filter(function (x) { return x.id === id; })[0];
+    if (!o) return;
+    var skills = o.skills.map(function (k) { return '<span class="skill">' + k + '</span>'; }).join("");
+    dlgBody.innerHTML = '<a href="#" class="back" data-cat="' + (fromCat || "all") + '"><svg class="i"><use href="#i-arrow"/></svg>Back to list</a>' +
+      '<div class="dbadges"><span class="chip chip-purple">' + TYPE[o.cat] + '</span><span class="chip chip-green">' + o.level + '</span></div>' +
+      '<div class="dtitle">' + o.title + '</div><div class="dorg">' + o.org + '</div>' +
+      '<p class="ddesc">' + o.desc + '</p>' +
+      '<div class="dfacts"><div><small>Format</small><b>' + o.mode + '</b></div><div><small>Duration</small><b>' + o.dur + '</b></div><div><small>Level</small><b>' + o.level + '</b></div></div>' +
+      '<div class="skills" style="padding-top:0">' + skills + '</div>' +
+      '<div class="dactions"><button type="button" class="btn btn-primary" data-apply="' + o.id + '">' + actionLabel(o) + ' <svg class="i"><use href="#i-arrow"/></svg></button>' +
+      '<button type="button" class="btn btn-white" data-save="' + o.id + '" style="background:var(--primary-soft);color:var(--primary)">' + (saved[o.id] ? "Saved ✓" : "Save for later") + '</button></div>';
+  }
+
+  function showDlg(fn) { fn(); dlg.classList.add("show"); dlg.querySelector(".panel").scrollTop = 0; }
+  function closeDlg() { dlg.classList.remove("show"); }
+  document.getElementById("closeDlg").addEventListener("click", closeDlg);
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) closeDlg(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDlg(); });
+
+  var lastCat = "all";
+  document.addEventListener("click", function (e) {
+    var t = e.target.closest("[data-cat],[data-opp],[data-apply],[data-save],.save");
+    if (!t) return;
+
+    if (t.hasAttribute("data-cat")) {
+      e.preventDefault();
+      lastCat = t.getAttribute("data-cat");
+      showDlg(function () { renderList(lastCat); });
+    } else if (t.hasAttribute("data-opp")) {
+      e.preventDefault();
+      var oid = parseInt(t.getAttribute("data-opp"), 10);
+      showDlg(function () { renderDetail(oid, lastCat); });
+    } else if (t.hasAttribute("data-apply")) {
+      var id = parseInt(t.getAttribute("data-apply"), 10);
+      var o = OPPS.filter(function (x) { return x.id === id; })[0];
+      closeDlg();
+      openForm(null, actionLabel(o).replace(" Now", "") + ": " + o.title, "Leave your details and we'll be in touch about this opportunity.", o.title);
+    } else if (t.hasAttribute("data-save")) {
+      var sid = parseInt(t.getAttribute("data-save"), 10);
+      saved[sid] = !saved[sid];
+      t.textContent = saved[sid] ? "Saved ✓" : "Save for later";
+    } else if (t.classList.contains("save")) {
+      t.classList.toggle("on");
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
